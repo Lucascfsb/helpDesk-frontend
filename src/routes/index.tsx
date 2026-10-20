@@ -1,5 +1,12 @@
-import { BrowserRouter } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { SignIn } from "../pages/SignIn";
 
-export function Routes() {
-  return <BrowserRouter>{/* Your routes go here */}</BrowserRouter>;
+export function AppRoutes() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
