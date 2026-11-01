@@ -1,12 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import { SignIn } from "../pages/SignIn";
+import { BrowserRouter } from "react-router";
+
+import { useAuth } from "../hooks/useAuth";
+
+import { AuthRoutes } from "./AuthRoutes";
+
+import { Loading } from "../components/Loading";
 
 export function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  const { session, isLoading } = useAuth();
+
+  function renderRoutes() {
+    if (!session) {
+      return <AuthRoutes />;
+    }
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return <BrowserRouter>{renderRoutes()}</BrowserRouter>;
 }
