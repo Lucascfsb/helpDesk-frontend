@@ -10,7 +10,7 @@ export function Input({ legend, type = "text", ...rest }: Props) {
       )}
       <input
         type={type}
-        className="w-full h-10 mb-4 border-b border-gray-300 px-4 text-base text-gray-200 bg-transparent outline-none focus:border-b-2 focus:border-blue-base placeholder-gray-400"
+        className="w-full h-10 mb-4 border-b border-gray-300 text-base text-gray-200 bg-transparent outline-none focus:border-b-2 focus:border-blue-base placeholder-gray-400"
         {...rest}
       />
     </fieldset>
